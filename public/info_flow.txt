@@ -1,0 +1,221 @@
+
+
+USER TYPES MESSAGE
+
+↓
+
+User presses SEND
+
+↓
+
+Widget validates input
+
+IF message is empty
+
+    RETURN
+
+ENDIF
+
+↓
+
+Append user message to chat
+
+Display:
+
+✓ Sent
+
+↓
+
+Display status:
+
+"Understanding your request..."
+
+↓
+
+POST /api/chat
+
+{
+
+    token,
+
+    conversation_id,
+
+    message
+
+}
+
+------------------------------------------------
+
+SERVER RECEIVES REQUEST
+
+↓
+
+Validate widget token
+
+IF token invalid
+
+    RETURN error
+
+ENDIF
+
+↓
+
+Find business
+
+↓
+
+Find active conversation
+
+IF conversation missing
+
+    Create conversation
+
+ENDIF
+
+↓
+
+Save user message
+
+↓
+
+Load recent messages
+
+Take last 10 messages
+
+↓
+
+Load Inquiry State
+
+{
+
+ location,
+
+ budget,
+
+ bedrooms,
+
+ property_type
+
+}
+
+↓
+
+Determine Intent
+
+
+IF
+
+"looking for house"
+
+OR
+
+"need apartment"
+
+THEN
+
+intent = PROPERTY_SEARCH
+
+
+ELSE IF
+
+"tell me about westlands"
+
+intent = AREA_INFORMATION
+
+
+ELSE
+
+intent = GENERAL
+
+ENDIF
+
+↓
+
+Update Inquiry State
+
+Extract:
+
+location
+
+budget
+
+bedrooms
+
+property type
+
+↓
+
+Check required fields
+
+
+IF missing fields
+
+{
+
+missing:
+
+location
+
+budget
+
+}
+
+↓
+
+Build prompt
+
+
+"You are a real estate assistant.
+
+Ask for missing details naturally."
+
+↓
+
+Send to AI
+
+↓
+
+Receive response
+
+↓
+
+Save AI message
+
+↓
+
+Return JSON
+
+
+{
+
+conversation_id,
+
+status:"success",
+
+message:
+
+"What location are you interested in?"
+
+}
+
+------------------------------------------------
+
+WIDGET RECEIVES RESPONSE
+
+↓
+
+Hide
+
+"Understanding request..."
+
+↓
+
+Append AI bubble
+
+↓
+
+Scroll to bottom
+
+↓
+
+Wait for next user message

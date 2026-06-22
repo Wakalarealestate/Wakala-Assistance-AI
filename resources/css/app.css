@@ -1,0 +1,45 @@
+.user-message-card{
+    padding: 10px;
+    max-width: 60%;
+    background-color: #033600;
+    border-radius: 10px;
+    margin-left: auto;
+    position: relative;
+    color: #FFF;
+}
+
+.user-message-card::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -10px;
+    width: 0;
+    height: 0;
+    border-width: 8px;
+    border-radius: 2px;
+    border-style: solid;
+    border-color: #033600 transparent transparent #033600;
+}
+
+.concierge-message-card{
+    padding: 10px;
+    max-width: 60%;
+    background-color: blue;
+    color: #FFF;
+    border-radius: 10px;
+    margin-right: auto;
+    position: relative;
+}
+
+.concierge-message-card::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -10px;
+    width: 0;
+    height: 0;
+    border-width: 8px;
+    border-radius: 2px;
+    border-style: solid;
+    border-color: blue blue transparent transparent;
+}
