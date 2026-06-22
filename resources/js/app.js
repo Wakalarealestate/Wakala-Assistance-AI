@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
                 },
                 body:JSON.stringify({
                     "channel": "web",
-                    "sender": localStorage.getItem("conversation_id") || null,
+                    "sender": localStorage.getItem("user_id") || null,
                     "message": message
                 })
             });
