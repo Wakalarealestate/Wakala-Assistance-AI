@@ -22,14 +22,17 @@ class OrchestratorService{
     }
 
     private function loadUser($message){
-        $user = UserClient::where('channel', $message->channel)->where('identifier', $message->sender)->first();
-        
-        if(!$user){
-            $user = UserClient::create([
-                'channel'=>$message->channel,
-                'identifier'=>$message->sender,
-            ]);
-        }
+        // $user = UserClient::where('channel', $message->channel)->where('identifier', $message->sender)->first();
+        // if(!$user){
+        //     $user = UserClient::create([
+        //         'channel'=>$message->channel,
+        //         'identifier'=>$message->sender,
+        //     ]);
+        // }
+        $user = UserClient::firstOrCreate([
+            'channel'=>$message->channel,
+            'identifier'=>$message->sender
+        ]);
     
         return $user;
     }
