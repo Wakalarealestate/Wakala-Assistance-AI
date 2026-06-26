@@ -23,19 +23,19 @@
 
 
         <!--Chatbox section-->
-        <div class="message-box fixed bottom-0 left-0 right-0 p-4 z-10">
-            <div class="input-group bg-white rounded-full flex items-center flex-1 gap-3 px-4 py-2 border border-[#033600]">
+        <div class="message-box fixed bottom-0 left-0 right-0 p-4 z-10 min-h-0">
+            <div class="input-group bg-white rounded-full flex items-center flex-1 gap-3 px-4 py-2 border border-[#033600] min-h-0">
                 <form id="user-input" class="flex items-center w-full">
                     <input
                         type="text"
                         id="message"
                         name="message"
                         placeholder="Type your message..."
-                        class="flex-1 border-0 outline-none bg-transparent min-w-0 text-pretty"
+                        class="flex-1 border-0 outline-none bg-transparent min-w-0 text-pretty min-h-0 text-wrap"
                     >
 
                     <button id="send-btn" type="submit" class="cursor-pointer shrink-0 w-10 h-10 rounded-[50%] bg-[#033600] overflow-hidden flex items-center justify-center">
-                        <img src="{{ asset('img/send.png') }}" alt="Send" class="w-8 h-8 object-contain invert">
+                        <img src="{{ asset('img/send.png') }}" alt="Send" class="w-5 h-5 object-contain invert">
                     </button>
                 </form>
             </div>

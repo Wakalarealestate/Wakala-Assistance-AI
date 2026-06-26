@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
                 },
                 body:JSON.stringify({
                     "channel": "web",
-                    "sender": localStorage.getItem("user_id") || null,
+                    "sender_id": localStorage.getItem("user_id") || null,
                     "message": message
                 })
             });
@@ -68,7 +68,9 @@ document.addEventListener("DOMContentLoaded", ()=>{
 
             const data = await response.json();
 
-            storeUserConversationID(data.user_id);
+            if(data.user_id){
+                storeUserConversationID(data.user_id);
+            }
 
             const concierge_response = data.response;
 
@@ -82,9 +84,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
     }
 
     function storeUserConversationID(id){
-        const user_id = localStorage.getItem('user_id');
-
-        if(!user_id || user_id === undefined){
+        if(id){
             localStorage.setItem('user_id', id);
         }
     }

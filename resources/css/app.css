@@ -12,7 +12,7 @@
     content: '';
     position: absolute;
     top: 0;
-    right: -10px;
+    right: -8px;
     width: 0;
     height: 0;
     border-width: 8px;
@@ -35,7 +35,7 @@
     content: '';
     position: absolute;
     top: 0;
-    left: -10px;
+    left: -8px;
     width: 0;
     height: 0;
     border-width: 8px;

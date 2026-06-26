@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Handlers\CustomerInquiryHandler;
+use App\Handlers\LeadQualificationHandler;
 use App\Handlers\ProjectInquiryHandler;
 
 class RouterService{
@@ -11,7 +12,8 @@ class RouterService{
     public function __construct(){
         $this->routes = [
             'project_inquiry' => ProjectInquiryHandler::class,
-            'customer_service' => CustomerInquiryHandler::class
+            'customer_service' => CustomerInquiryHandler::class,
+            'lead_qualification' => LeadQualificationHandler::class
         ];
     }
 

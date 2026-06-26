@@ -10,7 +10,7 @@ class WebAdapter extends Adapter{
     ){
         return new Message(
             channel: 'web',
-            sender: $payload['sender'] ?? $this->createSender(),
+            sender: !empty($payload['sender_id']) ? $payload['sender_id'] : $this->createSender(),
             message: $payload['message']
         );
     }
